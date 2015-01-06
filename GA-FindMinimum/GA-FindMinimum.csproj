@@ -34,22 +34,23 @@
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AForge.dll</HintPath>
+      <HintPath>..\packages\AForge.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Controls, Version=2.2.5.0, Culture=neutral, PublicKeyToken=a8ac264d1dc6b9d9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AForge.Controls.dll</HintPath>
+      <HintPath>..\packages\AForge.Controls.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Genetic, Version=2.2.4.0, Culture=neutral, PublicKeyToken=4336634eeb41b69b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AForge.Genetic.dll</HintPath>
+      <HintPath>..\packages\AForge.Genetic.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\AForge.Math.dll</HintPath>
+      <HintPath>..\packages\AForge.Math.dll</HintPath>
     </Reference>
-    <Reference Include="PolyLib">
-      <HintPath>packages\PolyLib.dll</HintPath>
+    <Reference Include="PolyLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PolyLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PolyGen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solution.cs" />
