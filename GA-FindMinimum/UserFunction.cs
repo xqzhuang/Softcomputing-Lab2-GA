@@ -13,12 +13,12 @@ namespace GA_FindMinimum
 {
     class UserFunction : OptimizationFunction1D
     {
-        public UserFunction() : base(new Range(0, 255)) { }
+        public UserFunction(int min, int max) : base(new Range(min, max)) { }
 
         public override double OptimizationFunction(double x)
         {
-            //Generate polynomial function f(x) = x + x^2 + 3*x^3
-            Polynomial p = new Polynomial(1, 0, 1, 3);      
+            //Generate polynomial function f(x) = x^5 + 3*x^4 - 2*x^3 - 4*x + 5
+            Polynomial p = new Polynomial(5, -4, 0, -2, 3, 1);
 
             Complex c = new Complex();
             c.Re = x;
@@ -26,7 +26,6 @@ namespace GA_FindMinimum
             //Evaluate with current x
             Complex r = p.Evaluate(c);
             
-            //return Math.Cos(x / 23) * Math.Sin(x / 50) + 2;
             return r.Re;
         }
     }

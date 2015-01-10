@@ -15,18 +15,22 @@ namespace GA_FindMinimum
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\nBegin Evolutionary Optimization\n");
+            Console.WriteLine("Begin Evolutionary Optimization");
 
             Solution s = new Solution();
 
-            Population p = s.Init();
-            //p.CrossoverRate = 
+            for (int i = -3; i <= 4; i++)
+            {
+                Population p = s.Init(i, i+1);
 
-            double[] result = s.Solve(p);
+                double[] result = s.Solve(p);
 
+                Console.WriteLine("\n================================================");
+                Console.WriteLine("Range: x >= {0} && x <= {1} ", i, i+1);
+                Console.WriteLine("When x = {0}  get local minimun = {1}", result[0], result[1]);
+            }
 
-            Console.WriteLine("\nWhen x = {0} get Result = {1} \n",result[0], result[1]);
-
+            Console.WriteLine("\nEND");
             Console.ReadLine();
         }
     }

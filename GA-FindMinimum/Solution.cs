@@ -36,20 +36,21 @@ namespace GA_FindMinimum
             set { iterations = value; }
         }
 
-        private UserFunction userFunction = new UserFunction();
+        private UserFunction userFunction;
 
         /// <summary>
         /// Initial population
         /// </summary>
         /// <returns>population</returns>
-        public Population Init()
+        public Population Init(int min, int max)
         {
-            //minimization
+            userFunction = new UserFunction(min, max);
+
+            //we do minimization
             userFunction.Mode = OptimizationFunction1D.Modes.Minimization;
 
             Population population = new Population(populationSize, new BinaryChromosome(chromosomeLength),
-                userFunction, (ISelectionMethod)new RankSelection());
-
+                userFunction, (ISelectionMethod)new RouletteWheelSelection());
 
             return population;
         }
@@ -61,24 +62,16 @@ namespace GA_FindMinimum
         /// <returns></returns>
         public double[] Solve(Population population)
         {
-            // iterations
-            int i = 1;
-
             double[] data = new double[2];
 
-            while (true)
+            // iterations
+            for (int i = 1; i <= iterations; i++)
             {
-                // run one epoch of genetic algorithm, including crossover and mutate?
-                population.RunEpoch();            
+                // run one epoch of genetic algorithm, including crossover and mutate
+                population.RunEpoch();
 
                 data[0] = userFunction.Translate(population.BestChromosome);
                 data[1] = userFunction.OptimizationFunction(data[0]);
-
-                // increase current iteration
-                i++;
-
-                if ((iterations != 0) && (i > iterations))
-                    break;
             }
 
             return data;
