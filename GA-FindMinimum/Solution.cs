@@ -12,31 +12,18 @@ namespace GA_FindMinimum
     class Solution
     {
 
-        private int populationSize = 40;
-
-        public int PopulationSize
-        {
-            get { return populationSize; }
-            set { populationSize = value; }
-        }
-
-        private int chromosomeLength = 32;
-
-        public int ChromosomeLength
-        {
-            get { return chromosomeLength; }
-            set { chromosomeLength = value; }
-        }
-
-        private int iterations = 100;
-
-        public int Iterations
-        {
-            get { return iterations; }
-            set { iterations = value; }
-        }
+        public int PopulationSize { get; set; }
+        public int ChromosomeLength { get; set; }
+        public int Iterations { get; set; }
 
         private UserFunction userFunction;
+
+        public Solution()
+        {
+            PopulationSize = 40;
+            ChromosomeLength = 32;
+            Iterations = 100;
+        }
 
         /// <summary>
         /// Initial population
@@ -49,7 +36,7 @@ namespace GA_FindMinimum
             //we do minimization
             userFunction.Mode = OptimizationFunction1D.Modes.Minimization;
 
-            Population population = new Population(populationSize, new BinaryChromosome(chromosomeLength),
+            Population population = new Population(PopulationSize, new BinaryChromosome(ChromosomeLength),
                 userFunction, (ISelectionMethod)new RouletteWheelSelection());
 
             return population;
@@ -65,7 +52,7 @@ namespace GA_FindMinimum
             double[] data = new double[2];
 
             // iterations
-            for (int i = 1; i <= iterations; i++)
+            for (int i = 1; i <= Iterations; i++)
             {
                 // run one epoch of genetic algorithm, including crossover and mutate
                 population.RunEpoch();

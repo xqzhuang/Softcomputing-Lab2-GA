@@ -17,8 +17,13 @@ namespace GA_FindMinimum
 
         public override double OptimizationFunction(double x)
         {
-            //Generate polynomial function f(x) = x^5 + 3*x^4 - 2*x^3 - 4*x + 5
-            Polynomial p = new Polynomial(5, -4, 0, -2, 3, 1);
+            // Generate polynomial which is an integral of (x+20)*(x+14)*(x+3)*(x-15)*(x-24)
+
+            // P(x) = (1/6)*x^6 - (2/5)*x^5 - (701/4)*x^4 - 246*x^3 + 52380*x^2 + 302400*x
+
+            // local minima: {x = -20, x = 3, x = 24}
+
+            Polynomial p = new Polynomial(1d/6d, -2d/5d, -701d/4d, -246, 52380, 302400);
 
             Complex c = new Complex();
             c.Re = x;
