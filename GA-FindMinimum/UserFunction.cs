@@ -21,9 +21,9 @@ namespace GA_FindMinimum
 
             // P(x) = (1/6)*x^6 - (2/5)*x^5 - (701/4)*x^4 - 246*x^3 + 52380*x^2 + 302400*x
 
-            // local minima: {x = -20, x = 3, x = 24}
+            // local minima: {x = -20, x = -3, x = 24}
 
-            Polynomial p = new Polynomial(1d/6d, -2d/5d, -701d/4d, -246, 52380, 302400);
+            Polynomial p = new Polynomial(0, 302400, 52380, -246, -701d/4d, -2d/5d, 1d/6d);
 
             Complex c = new Complex();
             c.Re = x;

@@ -21,8 +21,8 @@ namespace GA_FindMinimum
 
             int[][] ranges = {
                                 new int[] {-25, -11},
-                                new int[] {-11, 7},
-                                new int[] {7, 27}
+                                new int[] {-11, 9},
+                                new int[] {9, 27}
                                 };
 
             foreach (int[] range in ranges)
